@@ -50,6 +50,11 @@ const AssignmentSchema = new Schema({
     type: String,
     required: false,
   },
+  collab_status:{
+     type: String,
+    enum: ["Completed", "Pending",]
+,
+  }
 },{timestamps:true,createdAt: 'createdAt', updatedAt: 'updatedAt'});
 
 module.exports = mongoose.model("Assignment", AssignmentSchema);
