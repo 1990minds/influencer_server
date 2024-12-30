@@ -37,13 +37,13 @@ app.use(
 //     keys: [process.env.COOKEY_KEY],
 //   })
 // );
-app.use(
-	cors({
-		origin: "http://localhost:3001",
-		methods: "GET,POST,PUT,DELETE",
-		credentials: true,
-	})
-);
+// app.use(
+// 	cors({
+// 		origin: "http://localhost:3001",
+// 		methods: "GET,POST,PUT,DELETE",
+// 		credentials: true,
+// 	})
+// );
 
 app.use(bodyParser.json())
 app.use(
