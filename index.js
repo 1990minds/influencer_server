@@ -37,30 +37,30 @@ app.use(
 //     keys: [process.env.COOKEY_KEY],
 //   })
 // );
-// app.use(
-// 	cors({
-// 		origin: "http://localhost:3001"||"https://starsync-fc893.web.app/",
-// 		methods: "GET,POST,PUT,DELETE",
-// 		credentials: true,
-// 	})
-// );
-
-const allowedOrigins = [
-  "http://localhost:3001",
-  "https://starsync-fc893.web.app/",
-];
-
 app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true); // Allow the request
-      } else {
-        callback(new Error("Not allowed by CORS")); // Reject the request
-      }
-    },
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
+	cors({
+		origin: "https://starsync-fc893.web.app/",
+		methods: "GET,POST,PUT,DELETE",
+		credentials: true,
+	})
+);
+
+// const allowedOrigins = [
+//   "http://localhost:3001",
+//   "https://starsync-fc893.web.app/",
+// ];
+
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (!origin || allowedOrigins.includes(origin)) {
+//         callback(null, true); // Allow the request
+//       } else {
+//         callback(new Error("Not allowed by CORS")); // Reject the request
+//       }
+//     },
+//     methods: "GET,POST,PUT,DELETE",
+//     credentials: true,
   })
 );
 
