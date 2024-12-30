@@ -93,13 +93,13 @@ passport.use(
 passport.serializeUser((user, done) => done (null, user));
 passport.deserializeUser((user, done) => done (null, user));
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://localhost:3000",
+//     methods: "GET,POST,PUT,DELETE",
+//     credentials: true,
+//   })
+// );
 
 mongoose
   .connect(process.env.DB_URI, {
