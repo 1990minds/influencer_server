@@ -51,9 +51,13 @@ const AssignmentSchema = new Schema({
     required: false,
   },
   collab_status:{
-     type: String,
-    enum: ["Completed", "Pending",]
+    type: String,
+    default:"Pending"
 ,
+  },
+  Transaction_ID:{
+    type:String,
+    unique:true
   }
 },{timestamps:true,createdAt: 'createdAt', updatedAt: 'updatedAt'});
 
