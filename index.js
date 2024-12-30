@@ -37,13 +37,13 @@ app.use(
 //     keys: [process.env.COOKEY_KEY],
 //   })
 // );
-app.use(
-	cors({
-		origin: "https://starsync-fc893.web.app",
-		methods: "GET,POST,PUT,DELETE",
-		credentials: true,
-	})
-);
+// app.use(
+// 	cors({
+// 		origin: "https://starsync-fc893.web.app",
+// 		methods: "GET,POST,PUT,DELETE",
+// 		credentials: true,
+// 	})
+// );
 
 // const allowedOrigins = [
 //   "http://localhost:3001",
