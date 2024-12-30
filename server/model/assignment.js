@@ -50,6 +50,15 @@ const AssignmentSchema = new Schema({
     type: String,
     required: false,
   },
+  collab_status:{
+    type: String,
+    default:"Pending"
+,
+  },
+  Transaction_ID:{
+    type:String,
+    unique:true
+  }
 },{timestamps:true,createdAt: 'createdAt', updatedAt: 'updatedAt'});
 
 module.exports = mongoose.model("Assignment", AssignmentSchema);

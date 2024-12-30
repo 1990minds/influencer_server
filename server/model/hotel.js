@@ -16,6 +16,10 @@ const hotelschema = new Schema({
     type: String,
     trim: true,
   },
+  location_link :{
+    type:String,
+    trim:true
+  },
   instagram_id: {
     type: String,
     trim: true,

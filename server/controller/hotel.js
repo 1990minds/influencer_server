@@ -26,6 +26,7 @@ const createToken = (id) => {
 
 
 exports.createhotel = async (req, res) => {
+  console.log("hotel creating function triggered")
   const { 
     cafename, 
     phonenumber, 
@@ -41,7 +42,9 @@ exports.createhotel = async (req, res) => {
     selected_plan,   
     selected_plan_type,  
     TandC,
+    locationlink,
   } = req.body;
+  console.log()
 
   try {
     // Check if a hotel with the given email already exists
@@ -88,6 +91,7 @@ exports.createhotel = async (req, res) => {
       followers,
       budget,
       requirements,
+
       TandC, // Store the T&C content
       email: email.toLowerCase(),
       activated_date: activated_date ? new Date(activated_date) : null,
@@ -95,7 +99,8 @@ exports.createhotel = async (req, res) => {
       subscription_days_left: daysLeft,
       freetrail_status,
       selected_plan,         
-      selected_plan_type: selected_plan_type  
+      selected_plan_type: selected_plan_type,
+      location_link: locationlink    
     });
 
     // Hash the password before saving to the database

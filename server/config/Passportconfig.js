@@ -9,13 +9,10 @@ const path = require("path");
 const passport = require("passport");
 const session = require("express-session");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const bodyParser = require("body-parser") 
 
 const hotel = require("./server/router/hotel");
 const influencer = require("./server/router/influencers")
 const assignments = require("./server/router/assignment");
-const authRoutes = require("./server/router/authRoutes");
-const otpstuff = require("./server/router/sendsms")
 
 dotenv.config();
 const PORT = process.env.PORT || 6000;
@@ -31,21 +28,13 @@ app.use(
   express.urlencoded({ extended: true, limit: "50mb", parameterLimit: "500" })
 );
 
-// app.use(
-//   cookieSession({
-//     maxAge: 24 * 60 * 60 * 1000,
-//     keys: [process.env.COOKEY_KEY],
-//   })
-// );
 app.use(
-	cors({
-		origin: "http://localhost:3001",
-		methods: "GET,POST,PUT,DELETE",
-		credentials: true,
-	})
+  cookieSession({
+    maxAge: 24 * 60 * 60 * 1000,
+    keys: [process.env.COOKEY_KEY],
+  })
 );
 
-app.use(bodyParser.json())
 app.use(
   session({
   secret: "secret",
@@ -63,7 +52,7 @@ passport.use(
   {
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:5000/auth/google/callback",
+  callbackURL: "http://localhost:3000/auth/google/callback",
   },
   (accessToken, refreshToken, profile, done) => {
   return done(null, profile);
@@ -73,13 +62,6 @@ passport.use(
 passport.serializeUser((user, done) => done (null, user));
 passport.deserializeUser((user, done) => done (null, user));
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true,
-  })
-);
 
 mongoose
   .connect(process.env.DB_URI, {
@@ -93,11 +75,9 @@ mongoose
     app.use("/api",hotel);
     app.use("/api",influencer);
     app.use("/api",assignments);
-    app.use("/auth", authRoutes);
-    app.use("/api", otpstuff);
     
     const server = app.listen(PORT);
-    console.log("Server is running on ", PORT)
+    console.log("Server is running oon ", PORT)
 
    
   })
