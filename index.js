@@ -39,7 +39,7 @@ app.use(
 // );
 app.use(
 	cors({
-		origin: "https://starsync-fc893.web.app/",
+		origin: "https://starsync-fc893.web.app",
 		methods: "GET,POST,PUT,DELETE",
 		credentials: true,
 	})
